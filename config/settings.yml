@@ -1,0 +1,6 @@
+development:
+  name: default_sinatra
+test:
+  name: default_sinatra
+production:
+  name: default_sinatra
