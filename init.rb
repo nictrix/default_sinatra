@@ -18,7 +18,7 @@ settings = "config/settings.yml"
 cookies = "config/cookies.yml"
 
 datastore = YAML::load(File.open(datastore))[environment]
-settings = YAML::load(File.open(settings_path))[environment]
+settings = YAML::load(File.open(settings))[environment]
 cookies = YAML::load(File.open(cookies))[environment]
 
 configure environment.to_sym do
