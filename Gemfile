@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem 'sinatra', :require => false
 gem "sinatra-contrib"
 gem 'sinatra-flash'
-gem "haml"
+gem "haml", ">= 4.0.5"
 gem 'activesupport', :require => 'active_support/core_ext'
 
 #Datastore Dependencies
