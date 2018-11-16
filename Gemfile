@@ -5,11 +5,11 @@ gem 'sinatra', :require => false
 gem "sinatra-contrib"
 gem 'sinatra-flash'
 gem "haml"
-gem 'activesupport', :require => 'active_support/core_ext'
+gem 'activesupport', '>= 3.2.12'
 
 #Datastore Dependencies
 gem 'mysql2'
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord', '>= 3.2.12'
 
 #Rake & Job Dependencies
 gem 'rake'
