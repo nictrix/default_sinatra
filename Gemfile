@@ -9,7 +9,7 @@ gem 'activesupport', :require => 'active_support/core_ext'
 
 #Datastore Dependencies
 gem 'mysql2'
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord', '>= 4.0.3'
 
 #Rake & Job Dependencies
 gem 'rake'
