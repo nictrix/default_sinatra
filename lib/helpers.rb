@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 helpers do
   def logger
     $logger
@@ -12,16 +14,14 @@ helpers do
   end
 
   def show_flash
-    if session[:flash]
-      flash_message = session[:flash]
+    return unless session[:flash]
 
-      session[:flash] = nil
-
-      return "#{flash_message}"
-    end
+    flash_message = session[:flash]
+    session[:flash] = nil
+    flash_message.to_s
   end
 end
 
-before do
+after do
   ActiveRecord::Base.clear_active_connections!
 end

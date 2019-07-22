@@ -1,8 +1,6 @@
 require:
   - rubocop-performance
 
-Rails:
-  Enabled: true
 AllCops:
   Exclude:
     - 'vendor/**/*'
@@ -10,6 +8,10 @@ AllCops:
 Metrics:
   Exclude:
     - 'db/migrate/*'
+
+GlobalVars:
+  AllowedVariables:
+    - $logger
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case

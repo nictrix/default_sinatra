@@ -221,6 +221,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack
   activerecord
   activesupport
   bundler-audit
