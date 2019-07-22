@@ -98,17 +98,17 @@ A few helpers to advance the application.
 
 Adds extra stylesheets to that page, if defined
 
-In layout head section: `<%= stylesheet_controller %>`
-In route: `stylesheet :'views/main.css'`
-In public path: `/stylesheets/views/main.css`
+- In layout head section: `<%= stylesheet_controller %>`
+- In route: `stylesheet :'views/main.css'`
+- In public path: `/stylesheets/views/main.css`
 
 #### javascript_controller
 
 Adds extra javascript to that page, if defined
 
-In layout just before body close: `<%= javascript_controller %>`
-In route: `javascript :'views/main.css'`
-In public path: `/javascripts/views/main.css`
+- In layout just before body close: `<%= javascript_controller %>`
+- In route: `javascript :'views/main.css'`
+- In public path: `/javascripts/views/main.css`
 
 ## License and Copyright
 
