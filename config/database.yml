@@ -1,10 +1,4 @@
-application:
-  name: <%= ENV.fetch('APPLICATION_NAME').downcase %>
-cookie:
-  key: <%= ENV.fetch('APPLICATION_NAME').downcase %>.session
-  secret: <%= ENV.fetch('COOKIE_SECRET', 'development') %>
-  expire: <%= ENV.fetch('COOKIE_EXPIRE', '2592000') %>
-database:
+default: &default
   adapter: postgresql
   host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
   port: <%= ENV.fetch('DATABASE_PORT', '5432') %>
@@ -14,3 +8,12 @@ database:
   pool: <%= ENV.fetch('DATABASE_POOL') { 5 } %>
   timeout: 5000
   reconnect: true
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

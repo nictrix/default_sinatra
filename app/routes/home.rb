@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
 get '/' do
-  haml :home, :layout => false
+  logger.info 'Home route called'
+
+  stylesheet :'views/home'
+  erb :home
 end

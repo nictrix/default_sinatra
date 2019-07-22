@@ -1,59 +1,63 @@
+# frozen_string_literal: true
+
 Encoding.default_internal = Encoding.default_external = 'UTF-8'
 
-require "bundler"
+require 'bundler'
 
 Bundler.require
 
 require 'sinatra'
 require 'sinatra/flash'
+require 'sinatra/custom_logger'
+require 'sinatra/json'
 require 'active_record'
+require 'action_dispatch/middleware/executor'
 require 'logger'
 require 'socket'
 require 'yaml'
 
 environment = Sinatra::Application.environment.to_s
 
-datastore = "config/datastore.yml"
-settings = "config/settings.yml"
-cookies = "config/cookies.yml"
-
-datastore = YAML::load(File.open(datastore))[environment]
-settings = YAML::load(File.open(settings))[environment]
-cookies = YAML::load(File.open(cookies))[environment]
-
+# rubocop:disable Metrics/BlockLength
 configure environment.to_sym do
-  logfile = ::File.join(File.dirname(__FILE__),'log','application.log')
-  class ::Logger; alias_method :write, :<<; end
-  $logger = ::Logger.new(logfile,'weekly')
-  $logger.level = Logger::WARN if environment == "production"
-
-  set settings
+  set :root, File.dirname(__FILE__)
+  set :app_file, __FILE__
+  set :views, 'app/views'
+  set :public_folder, 'public'
   set :hostname, Socket.gethostname.downcase
 
+  register Config
+
+  logfile = ::File.join(File.dirname(__FILE__), 'log', 'application.log')
+  $logger = ::Logger.new(logfile, 'daily')
+  $logger.level = ::Logger::WARN if environment == 'production'
+
   enable :logging
-  unless environment == "production"
+  unless environment == 'production'
     enable :dump_errors, :raise_errors, :show_exceptions
     require 'sinatra/reloader'
     Sinatra::Application.also_reload '/lib/**/*.rb'
     Sinatra::Application.also_reload '/app/**/*.rb'
   end
 
-  set :app_file, __FILE__
-  set :views, "app/views"
-  set :public_folder, "public"
-  set :haml, { :attr_wrapper => '"', :format => :html5 }
-
-  use Rack::Session::Cookie, :key => cookies['key'],:secret => cookies['secret'], :expire_after => cookies['expire']
+  cookie_settings = { key: Settings.cookie['key'],
+                      secret: Settings.cookie['secret'],
+                      expire: Settings.cookie['expire'] }
+  use Rack::Session::Cookie, cookie_settings
   use Rack::CommonLogger, $logger
 
   begin
+    database = YAML.safe_load(ERB.new(File.read('config/database.yml')).result, aliases: true)[environment]
+
     ActiveRecord::Base.logger = $logger
-    ActiveRecord::Base.establish_connection(datastore)
-    use ActiveRecord::ConnectionAdapters::ConnectionManagement
-  rescue => error
-    $logger.warn error
+    ActiveRecord::Base.establish_connection(database)
+    use ActionDispatch::Executor, ActiveSupport::Executor
+    ActiveRecord::QueryCache.install_executor_hooks
+  rescue StandardError => e
+    $logger.warn e
   end
 end
+# rubocop:enable Metrics/BlockLength
 
-Dir[File.dirname(__FILE__) + '/lib/**/*.rb'].each {|file| require file }
-Dir[File.dirname(__FILE__) + '/app/**/*.rb'].each {|file| require file }
+Dir[File.dirname(__FILE__) + '/lib/**/*.rb'].each { |file| require file }
+Dir[File.dirname(__FILE__) + '/app/**/*.rb'].each { |file| require file }

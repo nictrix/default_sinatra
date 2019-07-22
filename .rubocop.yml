@@ -1,0 +1,20 @@
+require:
+  - rubocop-performance
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+Metrics:
+  Exclude:
+    - 'db/migrate/*'
+
+GlobalVars:
+  AllowedVariables:
+    - $logger
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Metrics/LineLength:
+  Max: 120
