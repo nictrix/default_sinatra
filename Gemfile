@@ -1,23 +1,37 @@
 source "https://rubygems.org"
 
-#Application Dependencies
+ruby ::File.read('.ruby-version').split('-').last
+
+# Application Dependencies
+gem 'puma'
 gem 'sinatra', :require => false
 gem "sinatra-contrib"
 gem 'sinatra-flash'
-gem "haml"
-gem 'activesupport', :require => 'active_support/core_ext'
+gem 'activesupport'
 
-#Datastore Dependencies
-gem 'mysql2'
-gem 'activerecord', :require => 'active_record'
+# Settings
+gem 'config'
 
-#Rake & Job Dependencies
+# Datastore Dependencies
+gem 'pg'
+gem 'activerecord'
+gem 'standalone_migrations'
+
+# Rake & Job Dependencies
 gem 'rake'
 gem 'progressbar'
+gem 'bundler-audit'
 
-#Test Dependencies
-group :test do
-  gem 'rspec', :require => 'spec'
+group :development, :test do
+  gem 'factory_bot'
+  gem 'faker'
+  gem 'rspec-json_expectations'
+  gem 'rspec'
   gem 'rack-test'
-  gem 'simplecov', '>= 0.4.0', :require => false
+  gem 'capybara'
+  gem 'racksh'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance'
+  gem 'shoulda'
+  gem 'simplecov', :require => false
 end

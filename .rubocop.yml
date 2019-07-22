@@ -1,0 +1,18 @@
+require:
+  - rubocop-performance
+
+Rails:
+  Enabled: true
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+Metrics:
+  Exclude:
+    - 'db/migrate/*'
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Metrics/LineLength:
+  Max: 120
