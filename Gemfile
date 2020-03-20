@@ -15,10 +15,10 @@ gem 'sinatra-flash'
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
+gem 'actionpack', '>= 5.2.4.2', require: false
 gem 'activerecord'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 5.2.7'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
@@ -36,5 +36,5 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance'
   gem 'shoulda'
-  gem 'simplecov', require: false
+  gem 'simplecov', '>= 0.17.0', require: false
 end
