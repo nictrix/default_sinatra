@@ -36,5 +36,5 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance'
   gem 'shoulda'
-  gem 'simplecov', require: false
+  gem 'simplecov', '>= 0.17.0', require: false
 end
