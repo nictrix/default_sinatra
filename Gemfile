@@ -15,10 +15,10 @@ gem 'sinatra-flash'
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
-gem 'activerecord'
+gem 'actionpack', '>= 6.0.3.5', require: false
+gem 'activerecord', '>= 5.2.4.5'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 6.0.0'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
