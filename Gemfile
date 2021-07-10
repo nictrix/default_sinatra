@@ -26,7 +26,7 @@ gem 'progressbar'
 gem 'rake'
 
 group :development, :test do
-  gem 'capybara'
+  gem 'capybara', '>= 3.26.0'
   gem 'factory_bot'
   gem 'faker'
   gem 'rack-test'
