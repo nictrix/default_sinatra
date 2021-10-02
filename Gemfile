@@ -15,10 +15,10 @@ gem 'sinatra-flash'
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
+gem 'actionpack', '>= 5.2.3', require: false
 gem 'activerecord'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 5.2.7'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
@@ -26,7 +26,7 @@ gem 'progressbar'
 gem 'rake'
 
 group :development, :test do
-  gem 'capybara'
+  gem 'capybara', '>= 3.26.0'
   gem 'factory_bot'
   gem 'faker'
   gem 'rack-test'
