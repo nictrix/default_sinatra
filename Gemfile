@@ -6,7 +6,7 @@ ruby ::File.read('.ruby-version').split('-').last
 
 # Application Dependencies
 gem 'activesupport'
-gem 'puma'
+gem 'puma', '>= 4.3.11'
 gem 'sinatra', require: false
 gem 'sinatra-contrib'
 gem 'sinatra-flash'
@@ -15,10 +15,10 @@ gem 'sinatra-flash'
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
+gem 'actionpack', '>= 5.2.6.2', require: false
 gem 'activerecord'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 5.2.7'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
