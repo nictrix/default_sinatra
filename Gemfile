@@ -16,7 +16,7 @@ gem 'config'
 
 # Datastore Dependencies
 gem 'actionpack', require: false
-gem 'activerecord'
+gem 'activerecord', '>= 5.2.8.1'
 gem 'pg'
 gem 'standalone_migrations'
 
