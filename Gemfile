@@ -29,7 +29,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot'
   gem 'faker'
-  gem 'rack-test'
+  gem 'rack-test', '>= 2.0.0'
   gem 'racksh'
   gem 'rspec'
   gem 'rspec-json_expectations'
