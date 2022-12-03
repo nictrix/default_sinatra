@@ -7,8 +7,8 @@ ruby ::File.read('.ruby-version').split('-').last
 # Application Dependencies
 gem 'activesupport'
 gem 'puma'
-gem 'sinatra', require: false
-gem 'sinatra-contrib'
+gem 'sinatra', '>= 2.2.3', require: false
+gem 'sinatra-contrib', '>= 2.2.3'
 gem 'sinatra-flash'
 
 # Settings
