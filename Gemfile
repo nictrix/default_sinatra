@@ -30,7 +30,7 @@ group :development, :test do
   gem 'factory_bot'
   gem 'faker'
   gem 'rack-test'
-  gem 'racksh'
+  gem 'racksh', '>= 1.0.1'
   gem 'rspec'
   gem 'rspec-json_expectations'
   gem 'rubocop', require: false
