@@ -8,17 +8,17 @@ ruby ::File.read('.ruby-version').split('-').last
 gem 'activesupport'
 gem 'puma'
 gem 'sinatra', require: false
-gem 'sinatra-contrib'
+gem 'sinatra-contrib', '>= 2.0.6'
 gem 'sinatra-flash'
 
 # Settings
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
-gem 'activerecord'
+gem 'actionpack', '>= 7.1.0', require: false
+gem 'activerecord', '>= 5.2.4'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 6.0.0'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
