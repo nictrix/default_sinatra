@@ -18,7 +18,7 @@ gem 'config'
 gem 'actionpack', require: false
 gem 'activerecord'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 7.1.3'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
