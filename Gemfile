@@ -15,7 +15,7 @@ gem 'sinatra-flash'
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
+gem 'actionpack', '>= 7.0.8.7', require: false
 gem 'activerecord'
 gem 'pg'
 gem 'standalone_migrations'
