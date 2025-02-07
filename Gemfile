@@ -27,7 +27,7 @@ gem 'rake'
 
 group :development, :test do
   gem 'capybara'
-  gem 'factory_bot'
+  gem 'factory_bot', '>= 6.5.1'
   gem 'faker'
   gem 'rack-test'
   gem 'racksh'
