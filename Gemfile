@@ -16,9 +16,9 @@ gem 'config'
 
 # Datastore Dependencies
 gem 'actionpack', require: false
-gem 'activerecord'
+gem 'activerecord', '>= 7.1.5.2'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 7.1.3'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
