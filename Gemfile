@@ -7,18 +7,18 @@ ruby ::File.read('.ruby-version').split('-').last
 # Application Dependencies
 gem 'activesupport'
 gem 'puma'
-gem 'sinatra', require: false
-gem 'sinatra-contrib'
+gem 'sinatra', '>= 2.0.6', require: false
+gem 'sinatra-contrib', '>= 2.0.6'
 gem 'sinatra-flash'
 
 # Settings
 gem 'config'
 
 # Datastore Dependencies
-gem 'actionpack', require: false
+gem 'actionpack', '>= 5.2.4', require: false
 gem 'activerecord'
 gem 'pg'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '>= 6.0.0'
 
 # Rake & Job Dependencies
 gem 'bundler-audit'
@@ -26,11 +26,11 @@ gem 'progressbar'
 gem 'rake'
 
 group :development, :test do
-  gem 'capybara'
+  gem 'capybara', '>= 3.27.0'
   gem 'factory_bot'
   gem 'faker'
-  gem 'rack-test'
-  gem 'racksh'
+  gem 'rack-test', '>= 2.0.0'
+  gem 'racksh', '>= 1.0.1'
   gem 'rspec'
   gem 'rspec-json_expectations'
   gem 'rubocop', require: false
